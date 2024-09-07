@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/flights/flight-detail.css' %}" />
+{% endblock %} {% block content %}
+<section class="flight-container">
+  <div class="flight-img">
+    <img src="{% static 'images/travel.png' %}" alt="A traveller" />
+  </div>
+  <div class="flight-details">
+    <h1 class="card-title">{{ flights.departure }}</h1>
+    <h2 class="card-title">{{ flights.sourcePlace }}</h2>
+    <h2 class="card-title">{{ flights.destinationPlace }}</h2>
+    <h2 class="card-title">{{ flights.description }}</h2>
+
+    <div class="flight-actions">
+      {% comment %}
+      <div class="cat-actions">
+        <a href="{% url 'flight-update' flight.id %}" class="btn warn">Edit</a>
+        <a href="{% url 'flight-delete' flight.id %}" class="btn danger"
+          >Delete</a
+        >
+      </div>
+
+      THIS IS COMMENTED BEC IT GIVES ME AN ERROR : NoReverseMatch , an empty
+      string (('',)) {% endcomment %}
+      <a href="" class="btn warn">Edit</a>
+      <a href="" class="btn danger">Delete</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

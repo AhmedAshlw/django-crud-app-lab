@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/flights/flight-index.css' %}" />
+{% endblock %} {% block content %}
+
+<section class="page-header">
+  <h1>Flight List</h1>
+  <img src="{% static 'images/airplane-red.png' %}" alt="red airplane" />
+  <img src="{% static 'images/airplane.png' %}" alt="An airplane" />
+  <img src="{% static 'images/world.png' %}" alt="Earth" />
+  <img src="{% static 'images/ticket-flight.png' %}" alt="ticket of a flight" />
+</section>
+
+<section class="card-container">
+  {% for flights in flights %}
+  <div class="card">
+    <a href="/flights/{{ flights.id }}">
+      <div class="card-content">
+        <div class="card-img-container">
+          <img src="{% static 'images/travel.png' %}" alt="A traveller" />
+        </div>
+        <h2 class="card-title">{{ flights.departure }}</h2>
+        <p><small>{{ flights.description }}</small></p>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
